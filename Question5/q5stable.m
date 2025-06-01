@@ -1,20 +1,13 @@
-% stable_spiral_plot.m
-% Phase portrait and nullclines for a stable spiral (a = 10, b = 5)
-
-% Parameters
 a = 10;
 b = 5;
 x_fp = a / 5;
 y_fp = 1 + x_fp^2;
 
-% Grid
 [x, y] = meshgrid(0:2:50, 0:2:50);
 
-% Vector field
 dx = a - x - (4.*x.*y) ./ (1 + x.^2);
 dy = b.*x .* (1 - y ./ (1 + x.^2));
 
-% Plot
 figure;
 quiver(x, y, dx, dy, 'k', 'AutoScale', 'on', 'AutoScaleFactor', 1.5); hold on;
 contour(x, y, dx, [0 0], 'r', 'LineWidth', 2); % dx/dt = 0
